@@ -36,9 +36,9 @@ int main(int argc, char *argv[]){
     print16(ptr_n);
 
     void* ptr_m_32_unsigned = reinterpret_cast<unsigned int*>(&m);
-    void* ptr_m_32_signed = reinterpret_cast<unsigned int*>(&m);
-    void* ptr_n_32_unsigned = reinterpret_cast<int*>(&n);
-    void* ptr_n_32_signed = reinterpret_cast<int*>(&n);
+    void* ptr_m_32_signed = reinterpret_cast<signed int*>(&m);
+    void* ptr_n_32_unsigned = reinterpret_cast<unsigned int*>(&n);
+    void* ptr_n_32_signed = reinterpret_cast<signed int*>(&n);
     
     printf("32-bit representation of expanded unsigned m\n");
     print32(ptr_m_32_unsigned);
