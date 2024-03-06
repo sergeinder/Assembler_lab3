@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 void print16(void *p){
     printf("a)%04hx ",*(reinterpret_cast<unsigned short *>(p)));
@@ -29,6 +30,18 @@ void arifmetic(void *p){
     void* ptr_two = &two;
     printf("Signed multiple by 2 %hd\n",(*(reinterpret_cast<short*>(p))) * (*(reinterpret_cast<short*>(ptr_two))));
     printf("Unigned multiple by 2 %hu\n",(*(reinterpret_cast<unsigned short*>(p))) * (*(reinterpret_cast<unsigned short*>(ptr_two))));
+    printf("Signed division by 2 %hd\n",(*(reinterpret_cast<short*>(p))) / (*(reinterpret_cast<short*>(ptr_two))));
+    printf("Unigned division by 2 %hu\n",(*(reinterpret_cast<unsigned short*>(p))) / (*(reinterpret_cast<unsigned short*>(ptr_two))));
+    short sixteen = 16;
+    void* ptr_sexteen = &sixteen;
+    printf("Calculation of the remainder of an unsigned division by 16%hu\n",(*(reinterpret_cast<unsigned short*>(p))) % (*(reinterpret_cast<unsigned short*>(ptr_sexteen))));
+    printf("Rounding down to a multiple of 16%hu\n", (*(reinterpret_cast<unsigned short*>(p))) * (floor((*(reinterpret_cast<unsigned short*>(p))) / (*(reinterpret_cast<unsigned short*>(ptr_sexteen))))));
+    printf("SOME %hu\n", *(reinterpret_cast<unsigned short*>(p)) << 1);
+    printf("SOME %hd\n", *(reinterpret_cast<short*>(p)) << 1);
+    printf("SOME %hu\n", *(reinterpret_cast<unsigned short*>(p))>> 1);
+    printf("SOME %hd\n", *(reinterpret_cast<short*>(p)) >> 1);
+    printf("x & 15 %hd", *(reinterpret_cast<unsigned short*>(p)) & 15);
+    printf("x & 16 %hd", *(reinterpret_cast<unsigned short*>(p)) & 16);
 
 }
 
