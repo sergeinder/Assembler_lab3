@@ -8,7 +8,7 @@ void print64(void *p){
     printf("d)%016llx ",*(reinterpret_cast<long long*>(p)));
     //printf("e)%064b ", *(reinterpret_cast<long long *>(p)));
     printf("f)%020lli ",*(reinterpret_cast<long long*>(p)));
-    printf("g)%5.2f ",*(reinterpret_cast<double*>(p)));
+    printf("g)%5.8f ",*(reinterpret_cast<double*>(p)));
     printf("e)%5.2e ",*(reinterpret_cast<double*>(p)));
 
     printf("\n");
@@ -16,19 +16,19 @@ void print64(void *p){
 
 float sum_row_float(int start, int end){
     if(start < end){
-        float result;
+        float result = 0.;
         float member;
-        for(int i = 0; i <= end;i++){
-            member = 1./(*(reinterpret_cast<float*>(&i)));
+        for(int i = 1; i < end;i++){
+            member = 1./(i);
             result += member;
         }
         return result;
     }
     else{
-        float result;
+        float result = 0.;
         float member;
-        for(int i = end; i >= start;i--){
-            member = 1./(*(reinterpret_cast<float*>(&i)));
+        for(int i = start; i >= end;i--){
+            member = 1./(i);
             result += member;
         }
         return result;
@@ -37,19 +37,19 @@ float sum_row_float(int start, int end){
 
 double sum_row_double(int start, int end){
     if(start < end){
-        double result;
+        double result = 0.;
         double member;
-        for(int i = 0; i <= end;i++){
-            member = 1./(*(reinterpret_cast<double*>(&i)));
+        for(int i = 1; i < end;i++){
+            member = 1./(i);
             result += member;
         }
         return result;
     }
     else{
-        double result;
+        double result = 0.;
         double member;
-        for(int i = end; i >= start;i--){
-            member = 1./(*(reinterpret_cast<double*>(&i)));
+        for(int i = start; i > end;i--){
+            member = 1./(i);
             result += member;
         }
         return result;
